@@ -1,0 +1,20 @@
+<form class="form-inline" #frm="ngForm" (ngSubmit)="addTodo(frm)">
+  <div class="form-group">
+    <input type="text" class="form-control" name="todoName" ngModel />
+  </div>
+  <button type="submit" name="button" class="btn btn-success">Add</button>
+</form>
+<hr>
+<div *ngFor="let todo of todoList">
+  <div class="row">
+    <div class="col-md-2">
+      <input type="checkbox" [checked]="todo.todoStatus" (click)="updateTodo(todo)" />
+    </div>
+    <div class="col-md-6">
+      {{todo.todoName}}
+    </div>
+    <div class="col-md-4">
+      <button type="button" name="button" class="btn btn-danger" (click)="deleteTodo(todo._id)">X</button>
+    </div>
+  </div>
+</div>
